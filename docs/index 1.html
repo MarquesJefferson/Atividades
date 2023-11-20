@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+
+        body {
+            background-color: #f8f9fa; 
+            color: #495057; 
+        }
+
+        .highlight {
+            background-color: #ffc107 !important; 
+            color: #212529; 
+        }
+
+        .table {
+            background-color: #fff; 
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row p-3">
+            <div class="col text-center">
+                <h1>Cadastro de Usuário</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col p-3 mb-4 bg-light border">
+                <form id="cadastroForm">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input id="nome" type="text" class="form-control" autocomplete="given-name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input id="email" type="email" class="form-control" autocomplete="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input id="senha" type="password" class="form-control" autocomplete="new">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Gênero:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="genero" value="Masculino">
+                            <label class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="genero" value="Feminino">
+                            <label class="form-check-label">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="genero" value="Outros">
+                            <label class="form-check-label">Outros</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Selecione pelo menos duas opções para cadastro:</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="opcao[]" value="1">
+                            <label class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="opcao[]" value="2">
+                            <label class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="opcao[]" value="3">
+                            <label class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="opcao[]" value="4">
+                            <label class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="opcao[]" value="5">
+                            <label class="form-check-label">5</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="valor">Valor:</label>
+                        <input type="number" class="form-control" id="valor" name="valor">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" class="form-control" id="quantidade" name="quantidade">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary m-3">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col p-3 mb-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Senha</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Opções Selecionadas</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="aula16_2.js"></script>
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+            const nomeInput = document.getElementById('nome').value;
+            const emailInput = document.getElementById('email').value;
+            const senhaInput = document.getElementById('senha').value;
+            const generoInput = document.querySelector('input[name="genero"]:checked') ? document.querySelector('input[name="genero"]:checked').value : '';
+            const opcoesSelecionadas = Array.from(document.querySelectorAll('input[name="opcao[]"]:checked')).map(opcao => opcao.value).join(', ');
+            const valorInput = document.getElementById('valor').value;
+            const quantidadeInput = document.getElementById('quantidade').value;
+
+            const textoSelecoes = `
+                Nome: ${nomeInput}
+                E-mail: ${emailInput}
+                Senha: ${senhaInput}
+                Gênero: ${generoInput}
+                Opções Selecionadas: ${opcoesSelecionadas}
+                Valor: ${valorInput}
+                Quantidade: ${quantidadeInput}
+            `;
+
+            alert(textoSelecoes);
+
+            event.preventDefault();
+        });
+    </script>
+</body

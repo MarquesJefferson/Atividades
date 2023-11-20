@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Sites</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-link {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 18px;
+        }
+
+        .site-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Meus Sites</h1>
+        <a class="site-link" href="https://www.site1.com" target="_blank">Site 1</a>
+        <a class="site-link" href="https://www.site2.com" target="_blank">Site 2</a>
+        <a class="site-link" href="https://www.site3.com" target="_blank">Site 3</a>
+    </div>
+</body>
+</html>
